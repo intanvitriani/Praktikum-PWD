@@ -1,0 +1,375 @@
+
+Style lily · CSS
+:root {
+    --primary-purple: #6d4fc9;
+    --dark-purple: #3f2d8a;
+    --light-purple: #927ccc;
+    --soft-border: #6c48e3;
+    --text-color: #2e2757;
+    --error-color: #d92d20;
+    --success-color: #2f8f6b;
+    --mint: #dbe8ff;
+    --mint-text: #2f5fb3;
+    --sky: #295691c7;
+    --sky-text: #2f5fb3;
+}
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ 
+body {
+    background-color: #f8f6ff;
+    background-image: radial-gradient(#e4dcff 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--text-color);
+    padding: 25px 15px;
+}
+ 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ 
+.header {
+    text-align: center;
+    background-color: #cf609d;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid var(--soft-border);
+    box-shadow: 0 8px 16px rgba(109, 79, 201, 0.12);
+}
+ 
+.kitty-bow {
+    font-size: 2rem;
+    display: block;
+}
+ 
+.header h1 {
+    font-size: 1.6rem;
+    color: var(--dark-purple);
+}
+ 
+.header p {
+    font-size: 0.85rem;
+    color: var(--primary-purple);
+}
+ 
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+ 
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+ 
+.card {
+    background-color: #3735ad85;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid var(--soft-border);
+    box-shadow: 0 8px 16px rgba(109, 79, 201, 0.12);
+}
+ 
+.card h2 {
+    font-size: 1.15rem;
+    color: var(--dark-purple);
+    margin-bottom: 15px;
+}
+ 
+/* Catalog Products */
+.product-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+ 
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background-color: var(--light-purple);
+    border-radius: 12px;
+    border: 1px solid var(--soft-border);
+}
+ 
+.product-info h4 {
+    font-size: 0.95rem;
+    color: var(--dark-purple);
+}
+ 
+.product-info span {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #3b6fd4;
+}
+ 
+/* Cart Styles */
+.cart-list {
+    min-height: 120px;
+    max-height: 220px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+ 
+.empty-cart {
+    text-align: center;
+    color: #8f7bd8;
+    font-size: 0.85rem;
+    margin-top: 35px;
+}
+ 
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--soft-border);
+    font-size: 0.85rem;
+}
+ 
+.cart-item-title {
+    font-weight: 600;
+}
+ 
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+ 
+.btn-qty {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-purple);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+.cart-summary {
+    background-color: var(--light-purple);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+ 
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+ 
+.total-price {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--dark-purple);
+    text-align: right;
+}
+ 
+.original-price {
+    text-decoration: line-through;
+    color: #9ca3af;
+    font-size: 0.8rem;
+    margin-right: 4px;
+}
+ 
+.discounted-price {
+    color: #3b6fd4;
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+ 
+.badge-diskon {
+    display: inline-block;
+    background-color: var(--mint);
+    color: var(--mint-text);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 4px;
+}
+ 
+.discount-note {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--mint-text);
+    margin-top: 4px;
+}
+ 
+/* Buttons (nama class .btn-purple dipertahankan supaya HTML tidak perlu diubah) */
+.btn {
+    padding: 9px 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+ 
+.btn-purple {
+    background-color: var(--primary-purple);
+    color: white;
+}
+ 
+.btn-purple:hover:not(:disabled) {
+    background-color: var(--dark-purple);
+}
+ 
+.btn-purple:disabled {
+    background-color: #c4b5f0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+ 
+.btn-reset {
+    background-color: var(--sky);
+    color: var(--sky-text);
+}
+ 
+.btn-reset:hover {
+    background-color: #cfe2ff;
+}
+ 
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+}
+ 
+.btn-full {
+    width: 100%;
+}
+ 
+/* History Section */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+ 
+.history-header h2 {
+    margin-bottom: 0;
+}
+ 
+.table-responsive {
+    overflow-x: auto;
+}
+ 
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    text-align: left;
+}
+ 
+.history-table th, .history-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--soft-border);
+}
+ 
+.history-table th {
+    background-color: var(--light-purple);
+    color: var(--dark-purple);
+}
+ 
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 45, 138, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 15px;
+}
+ 
+.modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 22px;
+    border-radius: 20px;
+    border: 3px solid var(--soft-border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+ 
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+ 
+.modal-header h3 {
+    color: var(--dark-purple);
+}
+ 
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    cursor: pointer;
+}
+ 
+.form-group {
+    margin-bottom: 12px;
+    text-align: left;
+}
+ 
+.form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--dark-purple);
+    margin-bottom: 4px;
+}
+ 
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 2px solid var(--soft-border);
+    outline: none;
+    font-size: 0.85rem;
+}
+ 
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-purple);
+}
+ 
+.error-text {
+    color: var(--error-color);
+    font-size: 0.75rem;
+    display: none;
+    margin-top: 3px;
+}
+ 
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+ 

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORE INTAN - Kasir & Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Utama -->
+        <header class="header">
+            <span class="kitty-bow"> </span>
+            <h1>STORE INTAN</h1>
+            <p>Belanja Produk-Produl Lucuu</p>
+        </header>
+
+        <!-- Layout Utama: Produk & Keranjang -->
+        <div class="main-layout">
+            <!-- Daftar Produk -->
+            <section class="card product-section">
+                <h2>Katalog Produk </h2>
+                <div class="product-grid" id="productGrid">
+                </div>
+            </section>
+
+            <!-- Keranjang Belanja -->
+            <section class="card cart-section">
+                <h2>Keranjang Belanja </h2>
+                <div id="cartList" class="cart-list">
+                    <p class="empty-cart">Keranjang mu masih kosong ni </p>
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Total Item:</span>
+                        <strong id="cartQty">0 item</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total Bayar:</span>
+                        <div id="cartTotal" class="total-price">Rp 0</div>
+                    </div>
+                    <small class="discount-note">*Dapatkan diskon 10% untuk pembelian di atas Rp 100.000!</small>
+                </div>
+
+                <button id="btnCheckout" class="btn btn-purple btn-full" disabled>
+                    Lanjut ke Checkout 
+                </button>
+            </section>
+        </div>
+
+        <!-- Latihan 2: Tabel Riwayat Belanja -->
+        <section class="card history-section">
+            <div class="history-header">
+                <h2>Riwayat Transaksi </h2>
+                <button id="btnClearHistory" class="btn btn-sm btn-reset">Hapus Riwayat</button>
+            </div>
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal & Waktu</th>
+                            <th>Jumlah Qty</th>
+                            <th>Total Bayar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <!-- Riwayat dipopulasi dari localStorage -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Latihan 3: Modal Form Data Pembeli -->
+    <div id="checkoutModal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Data Pembeli </h3>
+                <button id="btnCloseModal" class="btn-close">&times;</button>
+            </div>
+            <form id="buyerForm">
+                <div class="form-group">
+                    <label for="buyerNama">Nama Lengkap</label>
+                    <input type="text" id="buyerNama" placeholder="Contoh: Vitriani">
+                    <small class="error-text" id="errBuyerNama">Nama minimal 3 karakter</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="buyerNoHP">Nomor HP / WhatsApp</label>
+                    <input type="tel" id="buyerNoHP" placeholder="Contoh: 082183950032">
+                    <small class="error-text" id="errBuyerNoHP">Nomor HP minimal 12 digit angka</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="buyerAlamat">Alamat Pengiriman</label>
+                    <textarea id="buyerAlamat" rows="3" placeholder="Jl. veteran"></textarea>
+                    <small class="error-text" id="errBuyerAlamat">Alamat pengiriman minimal 10 karakter</small>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="btnCancelCheckout" class="btn btn-reset">Batal</button>
+                    <button type="submit" class="btn btn-purple">Konfirmasi & Bayar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
